@@ -1,0 +1,6 @@
+package: github.com/merencia/gorreios
+import:
+- package: github.com/PuerkitoBio/goquery
+- package: github.com/apex/log
+- package: github.com/gorilla/mux
+- package: github.com/jmoiron/sqlx
