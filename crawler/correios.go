@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"net/url"
 	"regexp"
+	"strings"
 	"time"
 
 	"github.com/PuerkitoBio/goquery"
@@ -32,7 +33,7 @@ func GetPackage(code string) []model.Event {
 	locationReg := regexp.MustCompile("[a-zA-Z].+\\s{0,}\\/.{0,}[A-Z]+")
 
 	doc.Find(".listEvent tr").Each(func(i int, s *goquery.Selection) {
-		text := s.Find(".sroLbEvent").Text()
+		text := strings.TrimSpace(s.Find(".sroLbEvent").Text())
 		info := s.Find(".sroDtEvent").Text()
 		text = r.ReplaceAllString(text, " ")
 		info = r.ReplaceAllString(info, " ")
