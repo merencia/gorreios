@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/merencia/gorreios/config"
 	"github.com/merencia/gorreios/controllers"
 )
 
@@ -15,6 +16,6 @@ func New() *http.Server {
 
 	return &http.Server{
 		Handler: mux,
-		Addr:    ":5000",
+		Addr:    ":" + config.Get().Port,
 	}
 }
