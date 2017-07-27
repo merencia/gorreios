@@ -1,0 +1,25 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family:'Helvetica Neue', 'Roboto', Helvetica, Arial, sans-serif;
+    font-weight:300;
+}
+
+body {
+    background-color: #fafafa;
+}
+
+.header {
+    text-align: center;
+    margin-top: 50px;
+}
+.header .title {
+    color: #3f3f3f;
+    font-size: 35px;
+}
+
+.header .subtitle {
+    color: #9f9f9f;
+    font-weight: 100;
+    font-size: 20px;
+}

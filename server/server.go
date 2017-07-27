@@ -10,10 +10,13 @@ import (
 )
 
 func New() *http.Server {
-
 	mux := mux.NewRouter()
 
 	mux.HandleFunc("/track/{code}", controllers.TrackPackage)
+
+	mux.PathPrefix("/").
+		Handler(http.StripPrefix("/", http.FileServer(http.Dir("static"))))
+
 	conf := config.Get()
 
 	log.Info("starting on port " + conf.Port)
