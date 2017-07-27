@@ -9,7 +9,58 @@
 <body>
     <div class="header">
         <h1 class="title">Co-Correios</h1>
-        <h2 class="subtitle">O coadjuvante para rastreamento de pacotes</h2>
+        <h2 class="subtitle">O coadjuvante para rastreamento de pacotes!</h2>
+    </div>
+    <div class="form">
+        <form method="GET" action="/">
+            <input type="text" name="code"/>
+            <button class='button' type="submit">Rastrear</button>
+        </form>
+    </div>
+    <div class="content">
+        <div id="events"></div>
     </div>
 </body>
+
+<script>
+    var code = getParameterByName("code");
+    if(code)
+        loadCode(code);
+
+    function loadCode(code) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                appendEvents(JSON.parse(this.response));
+            }
+        };
+        xhttp.open("GET", "/track/"+ code, true);
+        xhttp.send();
+    }
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    function appendEvents(events){
+        var eventsContainer = document.getElementById("events");
+        events.forEach(function(event) {
+            var eventElement = document.createElement("div");
+            var locationElement = document.createElement("span");
+            locationElement.className = "location";
+            locationElement.appendChild(document.createTextNode(event.location.toLowerCase()));
+            eventElement.appendChild(locationElement);  
+            var eventText = document.createTextNode(event.event);
+            eventElement.appendChild(eventText);    
+            eventElement.className = "event";
+            eventsContainer.appendChild(eventElement);
+        });
+    }
+</script>
 </html>

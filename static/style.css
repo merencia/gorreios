@@ -23,3 +23,46 @@ body {
     font-weight: 100;
     font-size: 20px;
 }
+
+.form {
+    margin: 30px auto 30px auto;
+    text-align: center;
+}
+.form input {
+    height: 28px;
+    width: 250px;
+    line-height: 25px;
+    font-size: 15px;
+    margin: 0px;
+    border: 1px solid #9f9f9f ;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-right: none;
+}
+
+.form .button {
+    height: 30px;
+    line-height: 25px;
+    font-size: 18px;
+    background: #1d76db;
+    border: 1px solid #0052cc ;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin: 0px;
+    padding: 0 10px 0 10px;
+    color: #ffffff;
+    margin-left: -5px;
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+.event .location {
+    margin-right: 5px;
+    text-transform: lowercase;
+    text-transform: capitalize;
+     color: #9f9f9f;
+}
