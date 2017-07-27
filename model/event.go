@@ -5,7 +5,7 @@ import (
 )
 
 type Event struct {
-	Date     time.Time
-	Location string
-	Event    string
+	Date     time.Time `json:"date"`
+	Location string    `json:"location"`
+	Event    string    `json:"event"`
 }

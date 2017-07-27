@@ -13,7 +13,7 @@ import (
 )
 
 func GetPackage(code string) []model.Event {
-	resp, err := http.PostForm("http://www2.correios.com.br/sistemas/rastreamento/newprint.cfm",
+	resp, err := http.PostForm("http://www2.correios.com.br/sistemas/rastreamento/resultado_semcontent.cfm",
 		url.Values{"objetos": {code}})
 
 	if err != nil {
